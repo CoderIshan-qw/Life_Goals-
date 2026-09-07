@@ -1,0 +1,443 @@
+```css
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background: #050507;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   BACKGROUND
+========================= */
+
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+
+    background:
+        radial-gradient(
+            circle at 20% 10%,
+            rgba(100, 70, 255, 0.18),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(0, 180, 255, 0.10),
+            transparent 30%
+        ),
+        #050507;
+}
+
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.container {
+    width: min(1100px, 92%);
+    margin: auto;
+    padding: 70px 0;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    text-align: center;
+    padding: 70px 20px 55px;
+}
+
+.status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 8px 14px;
+
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 100px;
+
+    background: rgba(255,255,255,0.04);
+
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #aaa;
+}
+
+.dot {
+    width: 7px;
+    height: 7px;
+
+    background: #65ff9a;
+    border-radius: 50%;
+
+    box-shadow: 0 0 12px #65ff9a;
+}
+
+.hero h1 {
+    margin-top: 25px;
+
+    font-size: clamp(55px, 10vw, 110px);
+    font-weight: 900;
+
+    letter-spacing: -6px;
+
+    line-height: 0.9;
+}
+
+.hero h1 span {
+    background: linear-gradient(
+        90deg,
+        #8b5cf6,
+        #38bdf8
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    margin-top: 25px;
+
+    color: #888;
+    font-size: 18px;
+}
+
+
+/* =========================
+   STATS
+========================= */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+
+    margin-bottom: 25px;
+}
+
+.stat-card {
+    padding: 30px;
+
+    background: rgba(255,255,255,0.035);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    backdrop-filter: blur(15px);
+
+    transition: 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+
+    border-color: rgba(139,92,246,0.5);
+
+    background: rgba(139,92,246,0.06);
+}
+
+.stat-card h2 {
+    font-size: 38px;
+}
+
+.stat-card p {
+    margin-top: 7px;
+    color: #777;
+    font-size: 13px;
+}
+
+
+/* =========================
+   PROGRESS
+========================= */
+
+.progress-section {
+    padding: 30px;
+
+    border-radius: 20px;
+
+    background: rgba(255,255,255,0.035);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    margin-bottom: 60px;
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 15px;
+}
+
+.progress-header h2 {
+    font-size: 17px;
+}
+
+.progress-header span {
+    color: #8b5cf6;
+    font-weight: bold;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+
+    background: #17171d;
+
+    border-radius: 100px;
+
+    overflow: hidden;
+}
+
+.progress {
+    width: 2%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        #8b5cf6,
+        #38bdf8
+    );
+
+    border-radius: inherit;
+
+    box-shadow: 0 0 15px rgba(139,92,246,0.7);
+}
+
+.quote {
+    margin-top: 18px;
+
+    color: #666;
+
+    font-size: 13px;
+
+    font-style: italic;
+}
+
+
+/* =========================
+   SECTION
+========================= */
+
+.section-title {
+    margin-bottom: 25px;
+
+    font-size: 13px;
+
+    letter-spacing: 4px;
+
+    color: #666;
+}
+
+
+/* =========================
+   MISSION CARDS
+========================= */
+
+.missions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.mission-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+
+    padding: 28px;
+
+    border-radius: 20px;
+
+    background: rgba(255,255,255,0.025);
+
+    border: 1px solid rgba(255,255,255,0.07);
+
+    transition:
+        transform 0.3s ease,
+        border 0.3s ease,
+        background 0.3s ease;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.mission-card::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 2px;
+    height: 100%;
+
+    background: linear-gradient(
+        #8b5cf6,
+        #38bdf8
+    );
+
+    opacity: 0;
+
+    transition: 0.3s;
+}
+
+.mission-card:hover {
+    transform: translateX(8px);
+
+    background: rgba(139,92,246,0.045);
+
+    border-color: rgba(139,92,246,0.25);
+}
+
+.mission-card:hover::before {
+    opacity: 1;
+}
+
+
+/* NUMBER */
+
+.mission-number {
+    min-width: 45px;
+
+    font-size: 13px;
+
+    color: #555;
+
+    font-family: monospace;
+}
+
+
+/* CONTENT */
+
+.mission-content {
+    flex: 1;
+}
+
+.category {
+    display: inline-block;
+
+    margin-bottom: 9px;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    color: #8b5cf6;
+}
+
+.mission-content h3 {
+    font-size: 20px;
+
+    line-height: 1.3;
+
+    margin-bottom: 8px;
+}
+
+.mission-content p {
+    max-width: 700px;
+
+    color: #777;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    text-align: center;
+
+    margin-top: 80px;
+
+    padding: 30px;
+
+    border-top: 1px solid rgba(255,255,255,0.07);
+}
+
+footer p {
+    color: #777;
+
+    margin-bottom: 12px;
+}
+
+footer span {
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    color: #8b5cf6;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 650px) {
+
+    .container {
+        padding: 25px 0 50px;
+    }
+
+    .hero {
+        padding: 50px 10px 40px;
+    }
+
+    .hero h1 {
+        letter-spacing: -3px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-card {
+        padding: 22px;
+    }
+
+    .mission-card {
+        gap: 15px;
+        padding: 22px 18px;
+    }
+
+    .mission-number {
+        min-width: 30px;
+    }
+
+    .mission-content h3 {
+        font-size: 17px;
+    }
+
+    .mission-content p {
+        font-size: 13px;
+    }
+
+}
+```
